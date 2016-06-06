@@ -1,2 +1,0 @@
-# BotFramework
-AssortedBots
