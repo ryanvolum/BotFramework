@@ -144,7 +144,7 @@ namespace CryptoBot
             : base(service)
         {
         }
-
+        //Comment
         public static string getCrypto(string ticker1, string ticker2)
         {
             {
