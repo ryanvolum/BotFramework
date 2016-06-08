@@ -89,7 +89,7 @@ namespace CryptoBot
             }
             else
             {
-                await context.PostAsync($"Not sure what domain you're checking for there");
+                await context.PostAsync($"Not sure what crypto you're checking for there");
             }
 
             context.Wait(MessageReceived);
@@ -114,7 +114,7 @@ namespace CryptoBot
             }
             else
             {
-                await context.PostAsync($"Not sure what cryptocurrency you're checking for there");
+                await context.PostAsync($"Dude, that's definitely not a cryptocurrency.");
             }
 
             context.Wait(MessageReceived);
@@ -168,6 +168,27 @@ namespace CryptoBot
         public async Task BlockChainInfo(IDialogContext context, LuisResult result)
         {
             await context.PostAsync($"Blockchain is a distributed database that maintains a continuously-growing list of data records hardened against tampering and revision, duh...");
+            context.Wait(MessageReceived);
+        }
+
+        [LuisIntent("SatoshiEgg")]
+        public async Task SatoshiEgg(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync($"Satoshi is an idea. Satoshi is a spectre. Satoshi is you, me, an unkempt Australian wearing a rumpled shirt. Satoshi is decentralized pizza.");
+            context.Wait(MessageReceived);
+        }
+
+        [LuisIntent("Daddy")]
+        public async Task Daddy(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync($"Satoshi Nakamoto");
+            context.Wait(MessageReceived);
+        }
+
+        [LuisIntent("Thanks")]
+        public async Task Thanks(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync($"No worries dawg. Hit me up for more if you need it!");
             context.Wait(MessageReceived);
         }
 
