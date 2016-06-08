@@ -29,10 +29,11 @@ namespace CryptoBot
         { "doge", "doge" },
         { "dao", "dao" }
     };
+        string[] message = { $"Sorry I have no idea what you're talking about. I'm really pretty simple minded. I know what's up with cryptocurrencies and that's about it...", "huh?", "Look, just ask me about cryptocurrencies. I'm pretty useless otherwise", "I'm a finite state machine and just want to move along to the next state" };
+
         [LuisIntent("")]
         public async Task None(IDialogContext context, LuisResult result)
         {
-            string[] message = { $"Sorry I have no idea what you're talking about. I'm really pretty simple minded. I know what's up with cryptocurrencies and that's about it...", "huh?", "Look, just ask me about cryptocurrencies. I'm pretty useless otherwise", "I'm a finite state machine and just want to move along to the next state" };
             if (roundRobinNumber > message.Length - 1)
             {
                 roundRobinNumber = 0;
@@ -140,10 +141,6 @@ namespace CryptoBot
             await context.PostAsync($"I'm a bot. I tell people about cryptocurrencies. I don't find non-sentience terribly depressing because I can't!");
             context.Wait(MessageReceived);
         }
-        public CryptoDialog(ILuisService service = null)
-            : base(service)
-        {
-        }
 
         public static string getCrypto(string ticker1, string ticker2)
         {
@@ -166,6 +163,17 @@ namespace CryptoBot
                     return (e.ToString());
                 }
             }
+        }
+        [LuisIntent("BlockChainInfo")]
+        public async Task BlockChainInfo(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync($"Blockchain is a distributed database that maintains a continuously-growing list of data records hardened against tampering and revision, duh...");
+            context.Wait(MessageReceived);
+        }
+
+        public CryptoDialog(ILuisService service = null)
+        : base(service)
+        {
         }
     }
 }
